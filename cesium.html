@@ -21,7 +21,7 @@
             sceneModePicker: true,
         });
         var tileset = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
-            url: "E:\OGC_WINTER_SCHOOL 2023\CityGML_Classwork\Task_day3\output\Cesium_out\CityModel\tileset.json"
+            url: "http://localhost/CityModel/tileset.json"
         }))
         Cesium.when(tileset.readyPromise).then(function (tileset) { viewer.flyTo(tileset) })
     </script>
