@@ -1,0 +1,30 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.80/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.80/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="cesiumContainer" style="width: 100%; height:100%"></div>
+    <script>
+        Cesium.Ion.defaultAccessToken = '<eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhODE5ZDU4Mi00ZGE5LTQxNTMtYjBmZS1kNDEyYWE4NjYwMDgiLCJpZCI6MTE5MDYwLCJpYXQiOjE3MDMwNDgxNjF9.VkVTWWBlr5r5U1MQBeY7VAXRyUw9DzpjgQIK0w1eUjg>';
+        var viewer = new Cesium.Viewer('cesiumContainer', {
+            baseLayerPicker: true,
+            vrButton: true,
+            geocoder: false,
+            navigationHelpButton: false,
+            selectionIndicator: false,
+            shadows: true,
+            timeline: false,
+            sceneModePicker: true,
+        });
+        var tileset = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
+            url: "E:\OGC_WINTER_SCHOOL 2023\CityGML_Classwork\Task_day3\output\Cesium_out\CityModel\tileset.json"
+        }))
+        Cesium.when(tileset.readyPromise).then(function (tileset) { viewer.flyTo(tileset) })
+    </script>
+</body>
+
+</html>
